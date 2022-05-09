@@ -1,0 +1,175 @@
+html {
+    background-color: #EFEFEF;
+    font-family: 'Arial', serif;
+    font-style: normal;
+}
+.color-a {
+    color: #000;
+}
+a {
+    text-decoration-line: none;
+}
+
+.color-light-blue {
+    background: rgba(49, 140, 223, 0.65);
+}
+
+.fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input, label {
+    display:block;
+}
+
+ul > li {
+    list-style-type: none;
+}
+
+.underline {
+    text-decoration-line: underline;
+}
+/*======================REGISTRATION AND AUTORIZATION==============================*/
+.big-block{
+    border-radius: 15px;
+    width: 800px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.title{
+    color: #000000;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+}
+.name-reg{
+    color: #000000;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+}
+.input-block{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    width: 600px;
+    height: 53px;
+}
+.text-block-reg{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.button{
+    border-radius: 20px;
+    padding: 15px 15px;
+    /*width: ;*/
+    /*height: ;*/
+}
+.button-text{
+    color: #000000;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+}
+.go-to-login{
+    color: #000000; 
+    text-decoration-line: underline;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+}
+/*======================REGISTRATION==============================*/
+
+.button-menu{
+    border-radius: 20px;
+    width: 600px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-text{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 41px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 59px;
+    margin-top: 40px;
+}
+
+/*====================Personal-inf====================*/
+.header{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.nav ul {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-text {
+    color: white;
+    font-size: 32px;
+}
+
+.personal-text{
+    color: #000000;
+    /*font-weight: 400;*/
+    font-size: 32px;
+    /*line-height: 37px;*/
+}
+.personal-field{
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 309px;
+    height: 56px;
+}
+.button-done{
+    background: rgba(56, 219, 72, 0.65);
+    border-radius: 20px;
+    width: 340px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gap-personal-info {
+    gap: 305px;
+}

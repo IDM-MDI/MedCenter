@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person-Information</title>
+    <link th:href="@{/css/style.css}" href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+ <header class="header color-light-blue">
+     <nav class="nav">
+         <ul>
+             <li><a class="nav-text" href="/menu">Меню</a></li>
+             <li><a class="nav-text underline" href="/person">Личная информация</a></li>
+             <li><a class="nav-text" href="/history">История болезней</a></li>
+             <li><a class="nav-text" href="/doctors">Врачи</a></li>
+             <li><a class="nav-text" href="/centers">Медицинские учреждения</a></li>
+         </ul>
+     </nav>
+ </header>
+ <main class="flex-center">
+     <form th:action="@{/person}" th:method="post" th:object="${person}" class="flex-column">
+         <div class="flex-row gap-personal-info">
+             <div class="personal-block">
+                 <label class="personal-text" for="personal-name">Имя</label>
+                 <input class="personal-field" th:value="${person.name}" type="text" th:field="*{name}" id="personal-name">
+                 <label class="personal-text" for="personal-surname">Фамилия</label>
+                 <input class="personal-field" th:value="${person.surname}" type="text" th:field="*{surname}" id="personal-surname">
+             </div>
+             <div class="personal-block">
+                 <label class="personal-text" for="personal-city">Город</label>
+                 <input class="personal-field" type="text" th:value="${person.address.city.name}" th:field="*{address.city.name}" id="personal-city">
+                 <label class="personal-text" for="personal-street">Улица</label>
+                 <input class="personal-field" type="text" th:value="${person.address.street}" th:field="*{address.street}" id="personal-street">
+                 <label class="personal-text" for="personal-house">Дом</label>
+                 <input class="personal-field" type="text" th:value="${person.address.house}" th:field="*{address.house}" id="personal-house">
+                 <label class="personal-text" for="personal-flat">Квартира</label>
+                 <input class="personal-field" type="text" th:value="${person.address.flat}" th:field="*{address.flat}" id="personal-flat">
+             </div>
+         </div>
+         <input class="button-done personal-text" type="submit" value="Готово!">
+     </form>
+ </main>   
+</body>
+</html>
