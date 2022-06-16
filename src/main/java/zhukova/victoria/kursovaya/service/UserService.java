@@ -2,6 +2,7 @@ package zhukova.victoria.kursovaya.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import zhukova.victoria.kursovaya.model.entity.City;
 import zhukova.victoria.kursovaya.model.entity.User;
 import zhukova.victoria.kursovaya.model.entity.UserInfo;
 import zhukova.victoria.kursovaya.repository.CityRepo;
@@ -40,7 +41,27 @@ public class UserService {
     }
 
     public void addUserInfo(User user,UserInfo info) {
+        City city = info.getAddress().getCity();
+        City cityFromDB = cityRepo.findByName(city.getName());
+
+        if(cityFromDB == null) {
+            cityRepo.save(city);
+            info.getAddress().setCity(cityRepo.findByName(city.getName()));
+        }
+        else {
+            info.getAddress().setCity(cityFromDB);
+        }
+
+        User userFromDB = repository.findByEmail(user.getEmail());
+        UserInfo infoFromDB = userFromDB.getInfo();
+        if(infoFromDB == null) {
+            userInfoRepo.save(info);
+            user.setInfo(userInfoRepo.getById(info.getId()));
+        }
+        else {
+            info.setId(infoFromDB.getId());
+            userInfoRepo.save(info);
+        }
         user.setInfo(info);
-        repository.save(user);
     }
 }

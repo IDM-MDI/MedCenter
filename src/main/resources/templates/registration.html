@@ -19,7 +19,7 @@
             </div>
             <div>
                 <label for="passwordInput" class="name-reg">Password</label>
-                <input type="password" th:field="*{password}" id="passwordInput" class="input-block text-block-reg" value="Password">
+                <input type="password" minlength="6" th:field="*{password}" id="passwordInput" class="input-block text-block-reg" value="Password">
             </div>
             <input class="button color-light-blue button-text" type="submit" value="Registration">
         </form>
