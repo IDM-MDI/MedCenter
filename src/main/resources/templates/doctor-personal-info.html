@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Information</title>
+    <link th:href="@{/css/style.css}" href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header color-light-blue">
+    <nav class="nav">
+        <ul>
+            <li><a class="nav-text" href="/admin">Меню</a></li>
+            <li><a class="nav-text underline" href="/menu/person">Личная информация</a></li>
+            <li><a class="nav-text" href="/admin/users">Пользователи</a></li>
+            <li><a class="nav-text" href="/admin/centers">Медицинские учреждения</a></li>
+            <li><a class="nav-text" href="/admin/category">Категория заболеваний</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="flex-center">
+    <form th:action="@{/admin/info}" th:method="post" th:object="${doctorInfo}" class="flex-column">
+        <div class="flex-row gap-personal-info">
+            <div class="personal-block">
+                <label class="personal-text" for="personal-name">Должность</label>
+                <input class="personal-field" th:value="${doctorInfo.position.name}" type="text" th:field="*{position.name}" id="personal-name">
+                <label class="personal-text" for="personal-surname">Название мед-центра</label>
+                <input class="personal-field" th:value="${doctorInfo.medCenter.name}" type="text" th:field="*{medCenter.name}" id="personal-surname">
+            </div>
+            <div class="personal-block">
+                <label class="personal-text" for="personal-city">Город</label>
+                <input class="personal-field" type="text" th:value="${doctorInfo.medCenter.address.city.name}" th:field="*{medCenter.address.city.name}" id="personal-city">
+                <label class="personal-text" for="personal-street">Улица</label>
+                <input class="personal-field" type="text" th:value="${doctorInfo.medCenter.address.street}" th:field="*{medCenter.address.street}" id="personal-street">
+                <label class="personal-text" for="personal-house">Дом</label>
+                <input class="personal-field" type="text" th:value="${doctorInfo.medCenter.address.house}" th:field="*{medCenter.address.house}" id="personal-house">
+                <label class="personal-text" for="personal-flat">Квартира</label>
+                <input class="personal-field" type="text" th:value="${doctorInfo.medCenter.address.flat}" th:field="*{medCenter.address.flat}" id="personal-flat">
+            </div>
+        </div>
+        <input class="button-done personal-text" type="submit" value="Готово!">
+    </form>
+</main>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -15,10 +16,10 @@
     <nav class="nav">
         <ul>
             <li><a class="nav-text" href="/menu">Меню</a></li>
-            <li><a class="nav-text" href="/person">Личная информация</a></li>
-            <li><a class="nav-text underline" href="/history">История болезней</a></li>
-            <li><a class="nav-text" href="/doctors">Врачи</a></li>
-            <li><a class="nav-text" href="/centers">Медицинские учреждения</a></li>
+            <li><a class="nav-text" href="/menu/person">Личная информация</a></li>
+            <li><a class="nav-text underline" href="/menu/history">История болезней</a></li>
+            <li><a class="nav-text" href="/menu/doctors">Врачи</a></li>
+            <li><a class="nav-text" href="/menu/centers">Медицинские учреждения</a></li>
         </ul>
     </nav>
 </header>
@@ -27,24 +28,12 @@
     <tr>
         <th scope="col">Категория</th>
         <th scope="col">Заболевание</th>
-        <th scope="col">Врач</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">Простуда</th>
-        <td>Грип</td>
-        <td>Врач 1</td>
-    </tr>
-    <tr>
-        <th scope="row">Операция</th>
-        <td>Пересадка</td>
-        <td>Врач 3</td>
-    </tr>
-    <tr>
-        <th scope="row">Лечение сына</th>
-        <td>Грип</td>
-        <td>Врач 2</td>
+    <tr th:each="disease: ${userDiseases}">
+        <th scope="row" th:text="${disease.category.name}"/>
+        <td th:text="${disease.name}" />
     </tr>
     </tbody>
 </table>

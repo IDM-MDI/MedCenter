@@ -11,15 +11,15 @@
 </head>
 <body>
     <div class="fixed-center">
-        <form class="big-block color-light-blue" th:action="@{/users/login}" th:method="POST" th:object="${loginUser}">
+        <form class="big-block color-light-blue" method="post" action="/login/auth" >
             <p class="title">Login</p>
             <div>
                 <label for="emailInput" class="name-reg">Email</label>
-                <input type="email" th:field="*{email}" id="emailInput" class="input-block  text-block-reg" value="Email Address">
+                <input type="email" name="email" id="emailInput" class="input-block  text-block-reg" value="Email Address">
             </div>
             <div>
                 <label for="passwordInput" class="name-reg">Password</label>
-                <input type="password" minlength="6" th:field="*{password}" id="passwordInput" class="input-block text-block-reg" value="Password">
+                <input type="password" minlength="6" name="password" id="passwordInput" class="input-block text-block-reg" value="Password">
             </div>
             <input class="button color-light-blue button-text" type="submit" value="Login">
         </form>

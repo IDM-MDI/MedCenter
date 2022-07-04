@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,11 @@
 </head>
 <body>
     <nav class="nav-menu">
-        <a class="button-menu color-light-blue menu-text" href="/person">Личная информация</a>
-        <a class="button-menu color-light-blue menu-text" href="/history">История болезней</a>
-        <a class="button-menu color-light-blue menu-text" href="/doctors">Врачи</a>
-        <a class="button-menu color-light-blue menu-text" href="/centers">Медицинские учреждения</a>
+        <a class="button-menu color-light-blue menu-text" href="/menu/person">Личная информация</a>
+        <a class="button-menu color-light-blue menu-text" href="/menu/history">История болезней</a>
+        <a class="button-menu color-light-blue menu-text" href="/menu/doctors">Врачи</a>
+        <a class="button-menu color-light-blue menu-text" href="/menu/centers">Медицинские учреждения</a>
+        <a class="button-menu color-light-blue menu-text" href="/admin" th:if="${isAdmin == true}">Админ меню</a>
     </nav>
 </body>
 </html>

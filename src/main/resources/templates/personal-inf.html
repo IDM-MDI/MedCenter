@@ -13,15 +13,15 @@
      <nav class="nav">
          <ul>
              <li><a class="nav-text" href="/menu">Меню</a></li>
-             <li><a class="nav-text underline" href="/person">Личная информация</a></li>
-             <li><a class="nav-text" href="/history">История болезней</a></li>
-             <li><a class="nav-text" href="/doctors">Врачи</a></li>
-             <li><a class="nav-text" href="/centers">Медицинские учреждения</a></li>
+             <li><a class="nav-text underline" href="/menu/person">Личная информация</a></li>
+             <li><a class="nav-text" href="/menu/history">История болезней</a></li>
+             <li><a class="nav-text" href="/menu/doctors">Врачи</a></li>
+             <li><a class="nav-text" href="/menu/centers">Медицинские учреждения</a></li>
          </ul>
      </nav>
  </header>
  <main class="flex-center">
-     <form th:action="@{/person}" th:method="post" th:object="${person}" class="flex-column">
+     <form th:action="@{/menu/person}" th:method="post" th:object="${person}" class="flex-column">
          <div class="flex-row gap-personal-info">
              <div class="personal-block">
                  <label class="personal-text" for="personal-name">Имя</label>

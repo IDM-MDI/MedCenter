@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person-Information</title>
+    <link th:href="@{/css/style.css}" href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header color-light-blue">
+    <nav class="nav">
+        <ul>
+            <li><a class="nav-text" href="/admin">Меню</a></li>
+            <li><a class="nav-text" href="/admin/info">Личная информация</a></li>
+            <li><a class="nav-text" href="/admin/users">Пользователи</a></li>
+            <li><a class="nav-text" href="/admin/center">Медицинские учреждения</a></li>
+            <li><a class="nav-text" href="/admin/category">Категория заболеваний</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="flex-center">
+    <form th:action="@{/admin}" th:method="post" th:object="${adminAccount}" class="flex-column">
+        <div class="flex-row gap-personal-info">
+            <div class="personal-block">
+                <label class="personal-text" for="personal-email">Почта</label>
+                <input class="personal-field" th:value="${adminAccount.user.email}" type="email" th:field="*{user.email}" id="personal-email">
+                <label class="personal-text" for="personal-password">Пароль</label>
+                <input class="personal-field" th:value="${adminAccount.user.password}" type="password" minlength="6" th:field="*{user.password}" id="personal-password">
+            </div>
+            <div class="personal-block">
+                <label class="personal-text" for="personal-name">Имя</label>
+                <input class="personal-field" th:value="${adminAccount.user.info.name}" type="text" th:field="*{user.info.name}" id="personal-name">
+                <label class="personal-text" for="personal-surname">Фамилия</label>
+                <input class="personal-field" th:value="${adminAccount.user.info.surname}" type="text" th:field="*{user.info.surname}" id="personal-surname">
+            </div>
+        </div>
+        <div class="flex-row gap-personal-info">
+            <div class="personal-block">
+                <label class="personal-text" for="personal-position">Должность</label>
+                <input class="personal-field" th:value="${adminAccount.info.position.name}" type="text" th:field="*{info.position.name}" id="personal-position">
+                <label class="personal-text" for="personal-med">Мед-центр</label>
+                <input class="personal-field" th:value="${adminAccount.info.medCenter.name}" type="text" th:field="*{info.medCenter.name}" id="personal-med">
+            </div>
+            <div class="personal-block">
+                <label class="personal-text" for="personal-city">Город</label>
+                <input class="personal-field" type="text" th:value="${adminAccount.user.info.address.city.name}" th:field="*{user.info.address.city.name}" id="personal-city">
+                <label class="personal-text" for="personal-street">Улица</label>
+                <input class="personal-field" type="text" th:value="${adminAccount.user.info.address.street}" th:field="*{user.info.address.street}" id="personal-street">
+                <label class="personal-text" for="personal-house">Дом</label>
+                <input class="personal-field" type="text" th:value="${adminAccount.user.info.address.house}" th:field="*{user.info.address.house}" id="personal-house">
+                <label class="personal-text" for="personal-flat">Квартира</label>
+                <input class="personal-field" type="text" th:value="${adminAccount.user.info.address.flat}" th:field="*{user.info.address.flat}" id="personal-flat">
+            </div>
+        </div>
+        <input class="button-done personal-text" type="submit" value="Готово!">
+    </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Position</title>
+    <link th:href="@{/css/style.css}" href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header color-light-blue">
+    <nav class="nav">
+        <ul>
+            <li><a class="nav-text" href="/admin">Меню</a></li>
+            <li><a class="nav-text" href="/admin/info">Личная информация</a></li>
+            <li><a class="nav-text" href="/admin/users">Пользователи</a></li>
+            <li><a class="nav-text" href="/admin/center">Медицинские учреждения</a></li>
+            <li><a class="nav-text" href="/admin/category">Категория заболеваний</a></li>
+        </ul>
+    </nav>
+</header>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Имя</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="posit: ${positions}">
+        <th scope="row" th:text="${posit.name}" />
+    </tr>
+    </tbody>
+</table>
+<div class="flex-center">
+    <a class="page-button color-light-blue page-text" th:if="${prevPage != 0}" th:href="@{/admin/position(page=${prevPage})}">Назад</a>
+    <a class="page-button color-light-blue page-text" th:if="${positions.size() == 10}" th:href="@{/admin/position(page=${nextPage})}">Вперед</a>
+</div>
+<main class="flex-center">
+    <form th:action="@{/admin/position}" th:method="post" th:object="${position}" class="flex-column">
+        <div class="flex-row gap-personal-info">
+            <div class="personal-block">
+                <div class="personal-text">Добавить должность</div>
+                <label class="personal-text" for="personal-name">Название</label>
+                <input class="personal-field" th:value="${position.name}" type="text" th:field="*{name}" id="personal-name">
+            </div>
+        </div>
+        <input class="button-done personal-text" type="submit" value="Готово!">
+    </form>
+</main>
+</body>
+</html>

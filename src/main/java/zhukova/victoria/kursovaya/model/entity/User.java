@@ -1,5 +1,6 @@
 package zhukova.victoria.kursovaya.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 @Getter @Setter
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class User {
     referencedColumnName = "id")
     private UserInfo info;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "disease_book",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -35,7 +36,7 @@ public class User {
     )
     private List<Disease> diseaseBook;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_complaint",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -43,7 +44,7 @@ public class User {
     )
     private List<UserComplaint> complaints;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "request",
             joinColumns = @JoinColumn(name = "user_id"),
